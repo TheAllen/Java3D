@@ -7,9 +7,12 @@ import javax.swing.JFrame;
 public class JavaWindow extends JFrame{
 
 	static JFrame f = new JavaWindow();
+	//private Screen screen;
 	
 	public JavaWindow() {
 		super("Java 3D Console");
+		
+		//screen = new Screen();
 		
 		//setUndecorated(true); // Means no bottoms on the top right corner
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,6 +23,6 @@ public class JavaWindow extends JFrame{
 	
 	public static void main(String[] args) {
 		
-		
+		new JavaWindow();
 	}
 }

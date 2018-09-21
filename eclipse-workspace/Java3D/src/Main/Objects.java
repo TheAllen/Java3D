@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
+//Polygon
 public class Objects {
 	private Polygon p;
 	private Color c;
@@ -22,5 +23,9 @@ public class Objects {
 	void drawPolygon(Graphics g) {
 		g.setColor(c);
 		g.drawPolygon(p);
+	}
+	
+	public Polygon getPoly() {
+		return p;
 	}
 }
