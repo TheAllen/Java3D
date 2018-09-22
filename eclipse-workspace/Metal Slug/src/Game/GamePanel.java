@@ -20,6 +20,10 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	//SCALE
 	public static final int SCALE = 2;
 	
+	//Target Timers
+	private final int FPS = 60;
+	private int targetTime = 1000 / FPS;
+	
 	//Image
 	private BufferedImage bufferedImage;
 	private Graphics2D g;
@@ -82,9 +86,24 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 		
 		while(running) {
 			
+			//Start timer
 			startTime = System.nanoTime();
 			
+			update();
+			render();
+			drawAndDispose();
 			
+			elapsedTime = (System.nanoTime() - startTime) / 1000000;
+			waitTime = targetTime - elapsedTime;
+			
+			//Subtracting the difference
+			if(waitTime < 0) waitTime = 5;
+			
+			try {
+				Thread.sleep(waitTime);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
